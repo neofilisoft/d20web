@@ -97,3 +97,13 @@ button:active { transform: scale(0.95); }
 .lang-option:hover {
     background-color: #424548;
 }
+
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.925);
+    font-size: 0.85rem;
+    z-index: 100;
+    user-select: none;
+}
