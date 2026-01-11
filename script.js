@@ -143,5 +143,4 @@ function addNumbersToDice(diceMesh) {
         diceMesh.add(label);
     }
 }
-
 addNumbersToDice(dice);
