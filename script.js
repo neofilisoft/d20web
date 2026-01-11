@@ -108,12 +108,8 @@ function addNumbersToDice(diceMesh) {
         return texture;
     }
 
-    console.log("เริ่มสร้างตัวเลขและคำนวณตำแหน่ง..."); 
-
-    const faceCount = indexAttribute.count / 3;
-    
+    const faceCount = indexAttribute.count / 3;    
     faceVectors = [];
-
     for (let i = 0; i < faceCount; i++) {
         const a = indexAttribute.getX(i * 3 + 0);
         const b = indexAttribute.getX(i * 3 + 1);
