@@ -108,8 +108,12 @@ function addNumbersToDice(diceMesh) {
         return texture;
     }
 
-    const faceCount = indexAttribute.count / 3;    
+    console.log("เริ่มสร้างตัวเลขและคำนวณตำแหน่ง..."); 
+
+    const faceCount = indexAttribute.count / 3;
+    
     faceVectors = [];
+
     for (let i = 0; i < faceCount; i++) {
         const a = indexAttribute.getX(i * 3 + 0);
         const b = indexAttribute.getX(i * 3 + 1);
@@ -139,4 +143,43 @@ function addNumbersToDice(diceMesh) {
         diceMesh.add(label);
     }
 }
+
 addNumbersToDice(dice);
+
+const translations = {
+    th: {
+        btnText: "ทอยเต๋า",
+        label: "TH"
+    },
+    en: {
+        btnText: "Roll Dice",
+        label: "EN"
+    }
+};
+
+function toggleLangMenu() {
+    const menu = document.getElementById('lang-menu');
+    menu.classList.toggle('show');
+}
+
+function changeLanguage(lang) {
+    const rollBtn = document.getElementById('rollBtn');
+    rollBtn.innerText = translations[lang].btnText;
+
+    const langToggle = document.getElementById('lang-toggle');
+    langToggle.innerText = translations[lang].label;
+
+    document.getElementById('lang-menu').classList.remove('show');
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('#lang-toggle')) {
+        const dropdowns = document.getElementsByClassName("lang-dropdown");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
