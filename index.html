@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neofilisoft D20 Roller</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <div class="lang-container">
+    <button id="lang-toggle" onclick="toggleLangMenu()">EN</button>
+    <div id="lang-menu" class="lang-dropdown">
+        <div class="lang-option" onclick="changeLanguage('th')">Thai</div>
+        <div class="lang-option" onclick="changeLanguage('en')">English</div>
+    </div>
+</div>
     <div id="dice-container"></div>
     <div class="ui">
         <h1 id="result-display">?</h1>
