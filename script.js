@@ -1,3 +1,6 @@
+var rollSound = new Audio('sfx/d20roll.mp3');
+rollSound.preload = 'auto';
+rollSound.load();
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight * 0.7), 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -48,6 +51,13 @@ animate();
 
 document.getElementById('rollBtn').onclick = () => {
     if (isRolling) return;
+
+    rollSound.currentTime = 0.01;
+    rollSound.play().catch(e => console.log("Audio play blocked"));
+    
+    setTimeout(() => {
+        rollSound.pause();
+    }, 1000);
 
     isRolling = true;
     document.getElementById('result-display').innerText = "...";
